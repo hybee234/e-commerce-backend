@@ -35,7 +35,7 @@ router.get('/:id', async (req, res) => {
 }
 });
 
-// create new product
+// POST a Product
 router.post('/', async (req, res) => {
   /* req.body should look like this...
     {
@@ -67,9 +67,8 @@ router.post('/', async (req, res) => {
     });
 });
 
-// update product
-router.put('/:id', (req, res) => {
-  // update product data
+// PUT - Update Product by ID
+router.put('/:id', (req, res) => {  
   Product.update(req.body, {
     where: {
       id: req.params.id,
@@ -112,6 +111,7 @@ router.put('/:id', (req, res) => {
     });
 });
 
+// DELETE a Product by ID
 router.delete('/:id', async (req, res) => {
   try {
     const deleteProduct = await Product.destroy({ where: { id: req.params.id, },})
