@@ -5,13 +5,11 @@ const { Category, Product } = require('../../models');
 
 // GET all Categories and associated Products
 router.get('/', async (req, res) => {
-// find all categories
-// be sure to include its associated Products 
     try {
-    const categoryData = await Category.findAll({
+    const getAllCategory = await Category.findAll({
         include: [{ model: Product }]        
     });    
-    res.status(200).json(categoryData);
+    res.status(200).json(getAllCategory);
     } catch (err) {
         res.status(500).json(err);
     }
@@ -21,17 +19,17 @@ router.get('/', async (req, res) => {
 // GET ONE Category by ID + associated products
 router.get('/:id', async (req, res) => {
     try {
-        const categoryData = await Category.findByPk(req.params.id, {
+        const getOneCategory = await Category.findByPk(req.params.id, {
             include: [{ model: Product }],
         });
 
-        if (!categoryData) {
+        if (!getOneCategory) {
             res.status(404).json({
                 status: "404: ID Not found",
                 message: "Category with this ID doesn't exist, please double check and try again" });
             return;
         }
-        res.status(200).json(categoryData);
+        res.status(200).json(getOneCategory);
     } catch (err) {
         res.status(500).json(err);
     }
@@ -39,19 +37,19 @@ router.get('/:id', async (req, res) => {
 
 
 // POST new Category
-    router.post('/', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
-        const categoryData = await Category.create(req.body);
-        res.status(200).json(categoryData);
+        const postNewCategory = await Category.create(req.body);
+        res.status(200).json(postNewCategory);
     } catch (err) {
         res.status(400).json(err);
     }
-    });
+});
 
-// PUT - update category by 'id' value
+// PUT - Update category by ID
 router.put('/:id', async (req, res) => {
     try {
-        const categoryUpdate = await Category.update( 
+        const putCategory = await Category.update( 
             {
                 category_name: req.body.category_name,        
             },
@@ -61,8 +59,8 @@ router.put('/:id', async (req, res) => {
                 },
             }        
         )
-        console.log (categoryUpdate[0])
-        if (categoryUpdate[0] === 0) {              // Category.update returns an array, index 0 is the number of rows affected, zero means nothing qualifies
+        console.log (putCategory)
+        if (putCategory[0] === 0) {              // Category.update returns an array, index 0 is the number of rows affected, zero means nothing qualifies
             res.status(404).json({
                 status: "404: ID Not found",
                 message: "Category with this ID doesn't exist, please double check and try again" });
@@ -77,10 +75,10 @@ router.put('/:id', async (req, res) => {
 //DELETE Category by ID
 router.delete('/:id', async (req, res) => {
     try {
-        const categoryDelete = await Category.destroy({ where: { id: req.params.id, },})
+        const deleteCategory = await Category.destroy({ where: { id: req.params.id, },})
 
-        console.log(categoryDelete)
-        if (!categoryDelete) {
+        console.log(deleteCategory)
+        if (!deleteCategory) {
             res.status(404).json({
                 status: "404: ID Not found",
                 message: "Category with this ID doesn't exist, please double check and try again" });
