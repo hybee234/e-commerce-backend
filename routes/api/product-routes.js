@@ -3,17 +3,36 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 
 // http://localhost:3001/api/products
 
-// get all products
+// GET all Products and associated Category and Tags
 router.get('/', async (req, res) => {
-  // find all products
-  // be sure to include its associated Category and Tag data
-  res.send("<h1>Find all products</h1>")
+  try {        
+    const getAllProduct = await Product.findAll({
+        // attributes: ['id', 'product_name'],  // Can define which columns we want from Product table  
+        include: [{ model: Category}, {model: Tag}]        
+    });    
+    res.status(200).json(getAllProduct);
+    } catch (err) {
+        res.status(500).json(err);
+    }
 });
 
-// get one product
+// GET ONE product by ID + associated Category annd Tag
 router.get('/:id', async (req, res) => {
-  // find a single product by its `id`
-  // be sure to include its associated Category and Tag data
+  try {
+    const getOneProduct = await Product.findByPk(req.params.id, {
+      include: [{ model: Category}, {model: Tag}]    
+    });
+
+    if (!getOneProduct) {
+        res.status(404).json({
+            status: "404: ID Not found",
+            message: "Product with this ID doesn't exist, please double check and try again" });
+        return;
+    }
+    res.status(200).json(getOneProduct);
+} catch (err) {
+    res.status(500).json(err);
+}
 });
 
 // create new product
