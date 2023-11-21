@@ -59,7 +59,7 @@ router.put('/:id', async (req, res) => {
                 },
             }        
         )
-        console.log (putCategory)
+        // console.log /putCategory)
         if (putCategory[0] === 0) {              // Category.update returns an array, index 0 is the number of rows affected, zero means nothing qualifies
             res.status(404).json({
                 status: "404: ID Not found",
@@ -77,7 +77,7 @@ router.delete('/:id', async (req, res) => {
     try {
         const deleteCategory = await Category.destroy({ where: { id: req.params.id, },})
 
-        console.log(deleteCategory)
+        // console.log(deleteCategory)
         if (!deleteCategory) {
             res.status(404).json({
                 status: "404: ID Not found",
