@@ -58,7 +58,8 @@ router.put('/:id', async (req, res) => {
                 },
             }        
         )
-        // console.log (putTag[0])
+        
+        //console.log (putTag[0])
         if (putTag[0] === 0) {              // Category.update returns an array, index 0 is the number of rows affected, zero means nothing qualifies
             res.status(404).json({
                 status: "404: ID Not found or no change",

@@ -1,37 +1,25 @@
-
-
 <a ID="readme-top"></a>
 
 <div align="center">
-Challenge 13 - Object-Relational Mapping (ORM)
-
 
 # Huber's eCommerce-Backend
 
-To be updated ... ...
-
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Node.js Badge](https://img.shields.io/badge/Node.js-393?logo=nodedotjs&logoColor=fff&style=flat)](https://nodejs.org/en)
-[![Inquirer Badge](https://img.shields.io/badge/Inquirer-red)](https://www.npmjs.com/)
-![MySQL2 Badge](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
 
+Challenge 13 - Object-Relational Mapping (ORM)
 </div>
 
 
 ## Description
 
-to update
-Employee Tracker is an employee management solution that keeps track of current employees, roles (job functions) and departments.
-Employee Tracker is a command line interface (CLI) application that enables users to maintain the database. 
+Huber's eCommerce-Backend is a server designed with the principals of RESTful API. Its purpose is to connect the front-end application in eCommerce with a back-end database that supports product management
 
-High level features of the solution are:
+High level features of the server are:
 
-API for product/category and tag RESTFUL API
-
-* Viewing the database - departments, roles and employees
-* Additions to the database - departments, roles and employees
-* Deleting from the database - departments, roles and employees
-* Updates to employee records
+* Providing information from the database about products, categories and tags
+* Creating new products, categories and tags on the database
+* Updating product, category, tag records on the database
+* Deleting products, categories, tags on the database as needed.
 
 This application has been developed from a boiler palte
 
@@ -50,7 +38,7 @@ This application has been developed from a boiler palte
 
 ## User Story <a ID="user-story"></a>
 
-This application was developed with this user story in mind:
+This server was developed with this user story in mind:
 
 ```
 AS A manager at an internet retail company
@@ -58,12 +46,11 @@ AS A manager at an internet retail company
 I WANT a back end for my e-commerce website that uses the latest technologies
 SO THAT my company can compete with other e-commerce companies
 ```
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## User Acceptance Criteria <a ID="user-acceptance-criteria"></a>
 
-### This application was developed with the below User acceptance criteria:
+### This server was developed with the below User acceptance criteria:
 
 ```
 GIVEN a functional Express.js API
@@ -85,7 +72,6 @@ THEN I am able to successfully create, update, and delete data in my database
 
 ```
 
-
 ### Additional requirements:
 
 * MySQL2 package must be used to connect to MySQL database
@@ -98,29 +84,22 @@ THEN I am able to successfully create, update, and delete data in my database
 
 ### Video
 
-Watch this video to learn more about the application
+Watch this video to learn more about the server
 
-<a href="https://drive.google.com/file/d/1F-TxUnNaoULuqn5DTNpz_jC-25aPx1c2/view"> Video - "How to: Huber's Employee Tracker" </a>
+<a href="https://drive.google.com/file/d/1F-TxUnNaoULuqn5DTNpz_jC-25aPx1c2/view"> Video - "How to: Huber's eCommerce Backend" </a>
 
 ### Screenshots
 
-Screenshot of the application during "Add New Role" and "Add New Employee Process"\
-* Note the headings rendered with colour schemes used
-* Note formatting and use of icons and colours across the application
-
+Screenshot of response to a GET request for all categories
 <div align="center">
 
-![Screenshot of the application in flight](./lib/images/screenshot1.png)
-
+![Screenshot of the response to GET all categories](./assets/images/screenshot1.png)
 </div>
 
-Screenshot of the application during "Delete Employee" process
-* Note the formatting of salary and icons and colours used in selection options
-
+Screenshot of response to a GET request for all products
 <div align="center">
 
-![Screenshot of the application during "Delete Employee" process](./lib/images/screenshot2.png)
-
+![Screenshot of the response to GET all products](./assets/images/screenshot2.png)
 </div>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -128,9 +107,10 @@ Screenshot of the application during "Delete Employee" process
 ## Installation
 
 1. Clone or fork the repository
-2. Run the below in concole install necessary packages
+2. Run the below in console install necessary packages
     * MySQL2 (Major version 3),
-    * Inquirer (Major version 8),    
+    * Express (Major version 4)
+    * Sequelize (Major version 6)
     * dotenv (Major version 8) 
 ```
 npm i
