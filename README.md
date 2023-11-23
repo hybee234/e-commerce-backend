@@ -86,7 +86,7 @@ THEN I am able to successfully create, update, and delete data in my database
 
 Watch this video to learn more about the server
 
-<a href="https://drive.google.com/file/d/1F-TxUnNaoULuqn5DTNpz_jC-25aPx1c2/view"> Video - "How to: Huber's eCommerce Backend" </a>
+<a href="https://drive.google.com/file/d/1h29d87JOBtMskNZp2F4yEOWwkikeE907/view"> Video - "How to: Huber's eCommerce Backend" </a>
 
 ### Screenshots
 
